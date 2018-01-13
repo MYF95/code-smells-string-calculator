@@ -1,4 +1,4 @@
-public class main {
+public class Calculator {
 
     public int calculate(String s) throws Exception {
         String[] numbers = s.split(",|\n");

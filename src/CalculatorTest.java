@@ -3,12 +3,12 @@ import org.junit.Before;
 import org.junit.Test;
 
 
-public class test {
-    private main calculator;
+public class CalculatorTest {
+    private Calculator calculator;
 
     @Before
     public void init(){
-        calculator = new main();
+        calculator = new Calculator();
     }
 
     @Test
