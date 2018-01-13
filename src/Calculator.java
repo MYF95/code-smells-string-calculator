@@ -6,24 +6,36 @@ public class Calculator {
             return 0;
         }
         if(input.length() == 1){
-            return Integer.parseInt(input);
+            return toInt(input);
         } else {
            return getSum(numbers);
         }
     }
 
+    private int toInt(String input){
+        return Integer.parseInt(input);
+    }
+
     private int getSum(String[] numbers) throws Exception {
-        int sum = 0;
-        for (int i = 0; i < numbers.length; i++) {
-            if(Integer.parseInt(numbers[i]) < 0){
+        negativeInputs(numbers);
+        return calculateValues(numbers);
+    }
+
+    private void negativeInputs(String[] numbers) throws Exception {
+        for (String current:numbers){
+            if(toInt(current) < 0){
                 throw new Exception("Negative input is not allowed");
             }
         }
-        for (int i = 0; i < numbers.length; i++) {
-            if(Integer.parseInt(numbers[i]) > 1000){
+    }
+
+    private int calculateValues(String[] numbers){
+        int sum = 0;
+        for (String current:numbers){
+            if(toInt(current) > 1000){
                 continue;
             }
-            sum += Integer.parseInt(numbers[i]);
+            sum += toInt(current);
         }
         return sum;
     }
